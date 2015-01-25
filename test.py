@@ -1,4 +1,5 @@
 from subprocess import check_output
+from os import system
 import sys
 import os
 sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\LeapDeveloperKit_2.2.2+24469_win\LeapSDK\lib")
@@ -33,6 +34,7 @@ while True:
 				print "commit"
 				print os.system('git add -A')
 				print os.system('git commit -a -m "from my leap"')
+				system('say Commit')
 		
 		elif abs(swipe.direction[2]) > abs(swipe.direction[1]) and abs(swipe.direction[2]) > abs(swipe.direction[0]):
 			if swipe.direction[2] > .5:
