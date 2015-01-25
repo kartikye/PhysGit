@@ -19,8 +19,20 @@ controller.enable_gesture(Leap.Gesture.TYPE_SCREEN_TAP)
 controller.enable_gesture(Leap.Gesture.TYPE_KEY_TAP)
 controller.enable_gesture(Leap.Gesture.TYPE_SWIPE)
 
+growl = gntp.notifier.GrowlNotifier(
+    applicationName = "My Application Name",
+    notifications = ["New Updates","New Messages"],
+    defaultNotifications = ["New Messages"],
+    # hostname = "computer.example.com", # Defaults to localhost
+    # password = "abc123" # Defaults to a blank password
+)
+growl.register()
+
+
 while True:
 	frame = controller.frame()
+
+
 
 	for gesture in frame.gestures():
 		swipe = Leap.SwipeGesture(gesture)
