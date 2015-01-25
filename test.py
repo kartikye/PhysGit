@@ -21,10 +21,10 @@ while True:
 
 	for gesture in frame.gestures():
 		swipe = Leap.SwipeGesture(gesture)
-		'''print swipe.direction[0]
+		print swipe.direction[0]
 		print swipe.direction[1]
 		print swipe.direction[2] 
-		print "\n"'''
+		print "\n"
 
 		if abs(swipe.direction[0]) > abs(swipe.direction[1]) and abs(swipe.direction[0]) > abs(swipe.direction[2]):
 			if swipe.direction[0] < .5:
@@ -41,7 +41,7 @@ while True:
 			if swipe.direction[2] > .5:
 				print "pull"
 				print os.system('git pull')
-				system('say hey fucker')
+				system('say pull')
 			if swipe.direction[2] < .5:
 				print "push"
 				print os.system('git push')
