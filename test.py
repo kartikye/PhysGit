@@ -1,5 +1,9 @@
 from subprocess import check_output
 from os import system
+import logging
+logging.basicConfig(level=logging.INFO)
+
+import gntp.notifier
 import sys
 import os
 sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\LeapDeveloperKit_2.2.2+24469_win\LeapSDK\lib")
@@ -29,12 +33,13 @@ while True:
 			if swipe.direction[0] < .5:
 				print "stash"
 				print os.system('git stash')
+				gntp.notifier.mini("Stashed")
 		elif abs(swipe.direction[1]) > abs(swipe.direction[0]) and abs(swipe.direction[1]) > abs(swipe.direction[2]):
 			if swipe.direction[1] < .5:
 				print "commit"
 				print os.system('git add -A')
 				print os.system('git commit -a -m "from my leap"')
-				system('say ')
+				system('say commit')
 		
 		elif abs(swipe.direction[2]) > abs(swipe.direction[1]) and abs(swipe.direction[2]) > abs(swipe.direction[0]):
 			if swipe.direction[2] > .5:
