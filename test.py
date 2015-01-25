@@ -26,7 +26,7 @@ growl = gntp.notifier.GrowlNotifier(
 	hostname = "computer.example.com", # Defaults to localhost
 	password = "abc123" # Defaults to a blank password
 )
-#growl.register()
+growl.register()
 
 
 while True:
