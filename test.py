@@ -2,7 +2,8 @@ from subprocess import check_output
 from os import system
 import sys
 import os
-sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\LeapDeveloperKit_2.2.2+24469_win\LeapSDK\lib")
+# sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\LeapDeveloperKit_2.2.2+24469_win\LeapSDK\lib")
+sys.path.insert(0, "/LeapSDK/lib")
 import LeapPython
 import Leap
 
