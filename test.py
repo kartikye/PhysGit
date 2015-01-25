@@ -40,7 +40,14 @@ while True:
 				print os.system('git add -A')
 				print os.system('git commit -a -m "from my leap"')
 				system('say commit')
-				gntp.notifier("Commited")
+				growl.notify(
+					noteType = "New Messages",
+					title = "You have a new message",
+					description = "A longer message description",
+					icon = "http://example.com/icon.png",
+					sticky = False,
+					priority = 1,
+				)
 		
 		elif abs(swipe.direction[2]) > abs(swipe.direction[1]) and abs(swipe.direction[2]) > abs(swipe.direction[0]):
 			if swipe.direction[2] > .5:
