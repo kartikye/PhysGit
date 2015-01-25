@@ -3,11 +3,11 @@ from os import system
 import logging
 logging.basicConfig(level=logging.INFO)
 
-# import gntp.notifier
+import gntp.notifier
 import sys
 import os
-# sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\LeapDeveloperKit_2.2.2+24469_win\LeapSDK\lib")
-sys.path.insert(0, "/LeapSDK/lib")
+sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\LeapDeveloperKit_2.2.2+24469_win\LeapSDK\lib")
+#sys.path.insert(0, "/LeapSDK/lib")
 import LeapPython
 import Leap
 
@@ -16,18 +16,17 @@ controller = Leap.Controller();
 controller.set_policy(Leap.Controller.POLICY_BACKGROUND_FRAMES)
 controller.set_policy(Leap.Controller.POLICY_IMAGES)
 controller.set_policy(Leap.Controller.POLICY_OPTIMIZE_HMD)
-controller.enable_gesture(Leap.Gesture.TYPE_SCREEN_TAP)
-controller.enable_gesture(Leap.Gesture.TYPE_KEY_TAP)
 controller.enable_gesture(Leap.Gesture.TYPE_SWIPE)
+controller.enable_gesture(Leap.Gesture.TYPE_CIRCLE)
 
-# growl = gntp.notifier.GrowlNotifier(
-#     applicationName = "GIT",
-#     notifications = ["New Updates","New Messages"],
-#     defaultNotifications = ["New Messages"],
-#     # hostname = "computer.example.com", # Defaults to localhost
-#     # password = "abc123" # Defaults to a blank password
-# )
-# growl.register()
+growl = gntp.notifier.GrowlNotifier(
+	applicationName = "GIT",
+	notifications = ["New Updates","New Messages"],
+	defaultNotifications = ["New Messages"],
+	hostname = "computer.example.com", # Defaults to localhost
+	password = "abc123" # Defaults to a blank password
+)
+#growl.register()
 
 
 while True:
@@ -41,6 +40,26 @@ while True:
 		print swipe.direction[1]
 		print swipe.direction[2] 
 		print "\n"'''
+
+		'''if gesture == Leap.Gesture.TYPE_CIRCLE:
+			growl.notify(
+				noteType = "New Messages",
+				title = "Merging",
+				description = "Your Git is being merged",
+				icon = "http://example.com/icon.png",
+				sticky = False,
+				priority = 1,
+			)
+			print "merge"
+			print os.system('git merge')
+			growl.notify(
+				noteType = "New Messages",
+				title = "Stashed",
+				description = "Your Git was merged",
+				icon = "http://example.com/icon.png",
+				sticky = False,
+				priority = 1,
+			)'''
 
 		if abs(swipe.direction[0]) > abs(swipe.direction[1]) and abs(swipe.direction[0]) > abs(swipe.direction[2]):
 			if swipe.direction[0] < .5:
