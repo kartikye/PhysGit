@@ -144,4 +144,4 @@ while True:
 		elif gesture.type == Leap.Gesture.TYPE_KEY_TAP:
 			print "bye"
 			print check_output("git push")'''
-	time.sleep(.1);
+	time.sleep(1);
