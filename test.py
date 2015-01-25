@@ -11,7 +11,7 @@ sys.path.insert(0, "/LeapSDK/lib")
 import LeapPython
 import Leap
 
-import speech_recognition as sr
+# import speech_recognition as sr
 
 
 controller = Leap.Controller();
