@@ -41,6 +41,7 @@ while True:
 			if swipe.direction[2] > .5:
 				print "pull"
 				print os.system('git pull')
+				system('say pull')
 			if swipe.direction[2] < .5:
 				print "push"
 				print os.system('git push')
