@@ -79,14 +79,14 @@ while True:
 		
 		elif abs(swipe.direction[2]) > abs(swipe.direction[1]) and abs(swipe.direction[2]) > abs(swipe.direction[0]):
 			if swipe.direction[2] > .5:
-				growl.notify(
-					noteType = "New Messages",
-					title = "Pulling",
-					description = "Your Git is being pulled",
-					icon = "http://example.com/icon.png",
-					sticky = False,
-					priority = 1,
-				)
+				# growl.notify(
+				# 	noteType = "New Messages",
+				# 	title = "Pulling",
+				# 	description = "Your Git is being pulled",
+				# 	icon = "http://example.com/icon.png",
+				# 	sticky = False,
+				# 	priority = 1,
+				# )
 				print "pull"
 				print os.system('git pull')
 				# growl.notify(
@@ -98,14 +98,14 @@ while True:
 				# 	priority = 1,
 				# )
 			if swipe.direction[2] < .5:
-				growl.notify(
-					noteType = "New Messages",
-					title = "Pushing",
-					description = "Your Git is being pushed",
-					icon = "http://example.com/icon.png",
-					sticky = False,
-					priority = 1,
-				)
+				# growl.notify(
+				# 	noteType = "New Messages",
+				# 	title = "Pushing",
+				# 	description = "Your Git is being pushed",
+				# 	icon = "http://example.com/icon.png",
+				# 	sticky = False,
+				# 	priority = 1,
+				# )
 				print "push"
 				print os.system('git push')
 				# growl.notify(
