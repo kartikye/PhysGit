@@ -40,6 +40,7 @@ while True:
 				print os.system('git add -A')
 				print os.system('git commit -a -m "from my leap"')
 				system('say commit')
+				gntp.notifier.mini("Commited")
 		
 		elif abs(swipe.direction[2]) > abs(swipe.direction[1]) and abs(swipe.direction[2]) > abs(swipe.direction[0]):
 			if swipe.direction[2] > .5:
