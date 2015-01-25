@@ -45,7 +45,14 @@ while True:
 			if swipe.direction[0] < .5:
 				print "stash"
 				print os.system('git stash')
-				gntp.notifier.mini("Stashed")
+				growl.notify(
+					noteType = "New Messages",
+					title = "Stashed",
+					description = "Your Git was stashed",
+					icon = "http://example.com/icon.png",
+					sticky = False,
+					priority = 1,
+				)
 		elif abs(swipe.direction[1]) > abs(swipe.direction[0]) and abs(swipe.direction[1]) > abs(swipe.direction[2]):
 			if swipe.direction[1] < .5:
 				print "commit"
@@ -54,8 +61,8 @@ while True:
 				system('say commit')
 				growl.notify(
 					noteType = "New Messages",
-					title = "You have a new message",
-					description = "A longer message description",
+					title = "Commited",
+					description = "Your Git was commited",
 					icon = "http://example.com/icon.png",
 					sticky = False,
 					priority = 1,
@@ -65,9 +72,25 @@ while True:
 			if swipe.direction[2] > .5:
 				print "pull"
 				print os.system('git pull')
+				growl.notify(
+					noteType = "New Messages",
+					title = "Pulled",
+					description = "Your Git was pulled",
+					icon = "http://example.com/icon.png",
+					sticky = False,
+					priority = 1,
+				)
 			if swipe.direction[2] < .5:
 				print "push"
-				print os.system('git push')	
+				print os.system('git push')
+				growl.notify(
+					noteType = "New Messages",
+					title = "Pushed",
+					description = "Your Git was pushed",
+					icon = "http://example.com/icon.png",
+					sticky = False,
+					priority = 1,
+				)
 		
 
 		'''if gesture.type == Leap.Gesture.TYPE_SCREEN_TAP:
