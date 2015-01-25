@@ -55,6 +55,14 @@ while True:
 				)
 		elif abs(swipe.direction[1]) > abs(swipe.direction[0]) and abs(swipe.direction[1]) > abs(swipe.direction[2]):
 			if swipe.direction[1] < .5:
+				growl.notify(
+					noteType = "New Messages",
+					title = "Committing",
+					description = "Your Git is being committing",
+					icon = "http://example.com/icon.png",
+					sticky = False,
+					priority = 1,
+				)
 				print "commit"
 				print os.system('git add -A')
 				print os.system('git commit -a -m "from my leap"')
@@ -70,6 +78,14 @@ while True:
 		
 		elif abs(swipe.direction[2]) > abs(swipe.direction[1]) and abs(swipe.direction[2]) > abs(swipe.direction[0]):
 			if swipe.direction[2] > .5:
+				growl.notify(
+					noteType = "New Messages",
+					title = "Pulling",
+					description = "Your Git is being pulled",
+					icon = "http://example.com/icon.png",
+					sticky = False,
+					priority = 1,
+				)
 				print "pull"
 				print os.system('git pull')
 				growl.notify(
