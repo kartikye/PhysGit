@@ -81,6 +81,14 @@ while True:
 					priority = 1,
 				)
 			if swipe.direction[2] < .5:
+				growl.notify(
+					noteType = "New Messages",
+					title = "Pushing",
+					description = "Your Git is being pushed",
+					icon = "http://example.com/icon.png",
+					sticky = False,
+					priority = 1,
+				)
 				print "push"
 				print os.system('git push')
 				growl.notify(
