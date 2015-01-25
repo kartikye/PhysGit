@@ -43,7 +43,8 @@ while True:
 				print os.system('git pull')
 			if swipe.direction[2] < .5:
 				print "push"
-				print os.system('git push')	
+				print os.system('git push')
+				system('say Push')
 		
 
 		'''if gesture.type == Leap.Gesture.TYPE_SCREEN_TAP:
