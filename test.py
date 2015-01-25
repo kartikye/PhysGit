@@ -20,7 +20,7 @@ controller.enable_gesture(Leap.Gesture.TYPE_KEY_TAP)
 controller.enable_gesture(Leap.Gesture.TYPE_SWIPE)
 
 growl = gntp.notifier.GrowlNotifier(
-    applicationName = "My Application Name",
+    applicationName = "GIT",
     notifications = ["New Updates","New Messages"],
     defaultNotifications = ["New Messages"],
     # hostname = "computer.example.com", # Defaults to localhost
