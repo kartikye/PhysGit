@@ -10,7 +10,7 @@ sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\Le
 #sys.path.insert(0, "/LeapSDK/lib")
 import LeapPython
 import Leap
-
+import time
 
 controller = Leap.Controller();
 controller.set_policy(Leap.Controller.POLICY_BACKGROUND_FRAMES)
@@ -28,11 +28,10 @@ growl = gntp.notifier.GrowlNotifier(
 )
 growl.register()
 
-
 while True:
 	frame = controller.frame()
 
-
+	time
 
 	for gesture in frame.gestures():
 		swipe = Leap.SwipeGesture(gesture)
@@ -145,4 +144,4 @@ while True:
 		elif gesture.type == Leap.Gesture.TYPE_KEY_TAP:
 			print "bye"
 			print check_output("git push")'''
-
+	time.sleep(.1);
