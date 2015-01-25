@@ -89,6 +89,7 @@ while True:
 				# )
 				print "pull"
 				print os.system('git pull')
+				system('say pull')
 				# growl.notify(
 				# 	noteType = "New Messages",
 				# 	title = "Pulled",
@@ -108,6 +109,7 @@ while True:
 				# )
 				print "push"
 				print os.system('git push')
+				system('say push, hellyeah!')
 				# growl.notify(
 				# 	noteType = "New Messages",
 				# 	title = "Pushed",
