@@ -11,6 +11,8 @@ sys.path.insert(0, "/LeapSDK/lib")
 import LeapPython
 import Leap
 
+import speech_recognition as sr
+
 
 controller = Leap.Controller();
 controller.set_policy(Leap.Controller.POLICY_BACKGROUND_FRAMES)
@@ -28,6 +30,16 @@ controller.enable_gesture(Leap.Gesture.TYPE_SWIPE)
 #     # password = "abc123" # Defaults to a blank password
 # )
 # growl.register()
+
+# r = sr.Recognizer()
+# with sr.Microphone() as source: # use the default microphone as the audio source
+# 	audio = r.listen(source) # listen for the first phrase and extract it into audio data
+
+# audio = r.listen(source)
+# # try:
+# print("You said " + r.recognize(audio)) # recognize speech using Google Speech Recognition
+# except LookupError: # speech is unintelligible
+# 	print("Could not understand audio")
 
 
 while True:
