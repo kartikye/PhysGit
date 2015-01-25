@@ -2,8 +2,7 @@ from subprocess import check_output
 from os import system
 import sys
 import os
-# sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\LeapDeveloperKit_2.2.2+24469_win\LeapSDK\lib")
-sys.path.insert(0, "/LeapSDK/lib")
+sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\LeapDeveloperKit_2.2.2+24469_win\LeapSDK\lib")
 import LeapPython
 import Leap
 
@@ -21,10 +20,10 @@ while True:
 
 	for gesture in frame.gestures():
 		swipe = Leap.SwipeGesture(gesture)
-		print swipe.direction[0]
+		'''print swipe.direction[0]
 		print swipe.direction[1]
 		print swipe.direction[2] 
-		print "\n"
+		print "\n"'''
 
 		if abs(swipe.direction[0]) > abs(swipe.direction[1]) and abs(swipe.direction[0]) > abs(swipe.direction[2]):
 			if swipe.direction[0] < .5:
@@ -35,17 +34,15 @@ while True:
 				print "commit"
 				print os.system('git add -A')
 				print os.system('git commit -a -m "from my leap"')
-				system('say Commit')
+				system('say ')
 		
 		elif abs(swipe.direction[2]) > abs(swipe.direction[1]) and abs(swipe.direction[2]) > abs(swipe.direction[0]):
 			if swipe.direction[2] > .5:
 				print "pull"
 				print os.system('git pull')
-				system('say pull')
 			if swipe.direction[2] < .5:
 				print "push"
-				print os.system('git push')
-				system('say Push')
+				print os.system('git push')	
 		
 
 		'''if gesture.type == Leap.Gesture.TYPE_SCREEN_TAP:
