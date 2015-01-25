@@ -28,6 +28,8 @@ growl = gntp.notifier.GrowlNotifier(
 )
 growl.register()
 
+float time = time.time()
+
 while True:
 	frame = controller.frame()
 
@@ -72,7 +74,6 @@ while True:
 					sticky = False,
 					priority = 1,
 				)
-				time.sleep(1);
 		elif abs(swipe.direction[1]) > abs(swipe.direction[0]) and abs(swipe.direction[1]) > abs(swipe.direction[2]):
 			if swipe.direction[1] < .5:
 				growl.notify(
@@ -95,7 +96,7 @@ while True:
 					sticky = False,
 					priority = 1,
 				)
-				time.sleep(1);
+		
 		elif abs(swipe.direction[2]) > abs(swipe.direction[1]) and abs(swipe.direction[2]) > abs(swipe.direction[0]):
 			if swipe.direction[2] > .5:
 				growl.notify(
@@ -117,7 +118,6 @@ while True:
 					sticky = False,
 					priority = 1,
 				)
-				time.sleep(1);
 			if swipe.direction[2] < .5:
 				growl.notify(
 					noteType = "New Messages",
@@ -138,7 +138,6 @@ while True:
 					sticky = False,
 					priority = 1,
 				)
-				time.sleep(1);
 		
 
 		'''if gesture.type == Leap.Gesture.TYPE_SCREEN_TAP:
@@ -147,4 +146,4 @@ while True:
 		elif gesture.type == Leap.Gesture.TYPE_KEY_TAP:
 			print "bye"
 			print check_output("git push")'''
-	
+	sleep(10);
