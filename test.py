@@ -10,13 +10,8 @@ sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\Le
 #sys.path.insert(0, "/LeapSDK/lib")
 import LeapPython
 import Leap
-<<<<<<< HEAD
 import time
-=======
 
-import speech_recognition as sr
-
->>>>>>> 43be12576f6bbc5106ac2537ca9e8b7e5cfe9484
 
 controller = Leap.Controller();
 controller.set_policy(Leap.Controller.POLICY_BACKGROUND_FRAMES)
@@ -34,20 +29,6 @@ growl = gntp.notifier.GrowlNotifier(
 )
 growl.register()
 
-<<<<<<< HEAD
-float time = time.time()
-=======
-# r = sr.Recognizer()
-# with sr.Microphone() as source: # use the default microphone as the audio source
-# 	audio = r.listen(source) # listen for the first phrase and extract it into audio data
-
-# audio = r.listen(source)
-# # try:
-# print("You said " + r.recognize(audio)) # recognize speech using Google Speech Recognition
-# except LookupError: # speech is unintelligible
-# 	print("Could not understand audio")
-
->>>>>>> 43be12576f6bbc5106ac2537ca9e8b7e5cfe9484
 
 while True:
 	frame = controller.frame()
@@ -165,4 +146,3 @@ while True:
 		elif gesture.type == Leap.Gesture.TYPE_KEY_TAP:
 			print "bye"
 			print check_output("git push")'''
-	sleep(10);
