@@ -57,9 +57,11 @@ class LeapListener(Leap.Listener):
 
 			if gesture.type == Leap.Gesture.TYPE_CIRCLE:
 				growlNotify("Merging")
+				system('say Merging')
 				print "merge"
 				print os.system('git merge')
 				growlNotify("Merged")
+				system('say Merged')
 			else:
 				swipe = Leap.SwipeGesture(gesture)
 
@@ -68,26 +70,30 @@ class LeapListener(Leap.Listener):
 						print "stash"
 						print os.system('git stash')
 						growlNotify("Stashed")
+						system('say Stashed')
 				elif abs(swipe.direction[1]) > abs(swipe.direction[0]) and abs(swipe.direction[1]) > abs(swipe.direction[2]):
 					if swipe.direction[1] < .5:
 						growlNotify("Committing")
+						system('say Committing')
 						print "commit"
 						print os.system('git add -A')
 						print os.system('git commit -a -m "from my leap"')
-						system('say commit')
+						system('say Committed')
 						growlNotify("Commited")
 				elif abs(swipe.direction[2]) > abs(swipe.direction[1]) and abs(swipe.direction[2]) > abs(swipe.direction[0]):
 					if swipe.direction[2] > .5:
 						growlNotify("Pulling")
+						system('say Pulling')
 						print "pull"
 						print os.system('git pull')
-						system('say pull')
+						system('say Pulling')
 						growlNotify("Pulled")
 					if swipe.direction[2] < .5:
 						growlNotify("Pushing")
+						system('say Pushing')
 						print "push"
 						print os.system('git push')
-						system('say push, hellyeah!')
+						system('say Pushed')
 						growlNotify("Pushed")
 
 def main():
