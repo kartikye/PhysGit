@@ -97,6 +97,7 @@ class LeapListener(Leap.Listener):
 						growlNotify("Pushed")
 
 #blah blah needed for demo
+#blah blah also needed
 
 def main():
 	listener = LeapListener()
