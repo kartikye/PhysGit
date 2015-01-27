@@ -12,6 +12,8 @@ import LeapPython
 import Leap
 import time
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~BUUUUUGGGGGGGGG
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~BUUUUUGGGGGGGGGs
 
 controller = Leap.Controller();
 controller.set_policy(Leap.Controller.POLICY_BACKGROUND_FRAMES)

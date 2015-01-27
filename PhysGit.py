@@ -6,30 +6,12 @@ logging.basicConfig(level=logging.INFO)
 import gntp.notifier
 import sys
 import os
-sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\LeapDeveloperKit_2.2.2+24469_win\LeapSDK\lib")
+#sys.path.insert(0, "C:\Users\Kartikye\Downloads\Leap_Motion_SDK_Windows_2.2.2\LeapDeveloperKit_2.2.2+24469_win\LeapSDK\lib")
 #sys.path.insert(0, "/LeapSDK/lib")
+sys.path.insert(0, "LeapSDK")
 import LeapPython
 import Leap
 import time
-
-growl = gntp.notifier.GrowlNotifier(
-	applicationName = "GIT",
-	notifications = ["New Updates","New Messages"],
-	defaultNotifications = ["New Messages"],
-	hostname = "localhost", # Defaults to localhost
-	password = "" # Defaults to a blank password
-)
-growl.register()
-
-def growlNotify(message):
-	growl.notify(
-		noteType = "New Messages",
-		title = message,
-		description = "",
-		icon = "http://example.com/icon.png",
-		sticky = False,
-		priority = 1,
-	)
 
 class LeapListener(Leap.Listener):
 	def on_init(self, controller):
@@ -56,41 +38,97 @@ class LeapListener(Leap.Listener):
 		for gesture in frame.gestures():
 
 			if gesture.type == Leap.Gesture.TYPE_CIRCLE:
-				growlNotify("Merging")
-				print "merge"
-				print os.system('git merge')
-				growlNotify("Merged")
+				merge()
 			else:
 				swipe = Leap.SwipeGesture(gesture)
 
 				if abs(swipe.direction[0]) > abs(swipe.direction[1]) and abs(swipe.direction[0]) > abs(swipe.direction[2]):
+					
 					if swipe.direction[0] < .5:
-						print "stash"
-						print os.system('git stash')
-						growlNotify("Stashed")
+						stash()
+
 				elif abs(swipe.direction[1]) > abs(swipe.direction[0]) and abs(swipe.direction[1]) > abs(swipe.direction[2]):
+					
 					if swipe.direction[1] < .5:
-						growlNotify("Committing")
-						print "commit"
-						print os.system('git add -A')
-						print os.system('git commit -a -m "from my leap"')
-						system('say commit')
-						growlNotify("Commited")
+						commit()
+				
 				elif abs(swipe.direction[2]) > abs(swipe.direction[1]) and abs(swipe.direction[2]) > abs(swipe.direction[0]):
+	
 					if swipe.direction[2] > .5:
-						growlNotify("Pulling")
-						print "pull"
-						print os.system('git pull')
-						system('say pull')
-						growlNotify("Pulled")
+						pull()
+	
 					if swipe.direction[2] < .5:
-						growlNotify("Pushing")
-						print "push"
-						print os.system('git push')
-						system('say push, hellyeah!')
-						growlNotify("Pushed")
+						push()
+
+def growlNotify(message):
+	try:
+		growl.notify(
+			noteType = "New Messages",
+			title = message,
+			description = "",
+			icon = "http://example.com/icon.png",
+			sticky = False,
+			priority = 1,
+		)
+	except:
+		pass	
+
+def say(message):
+	try:
+		system('say '+message)		
+	except:
+		pass
+
+def merge():
+	growlNotify("Merging")
+	print "merge"
+	print os.system('git merge')
+	growlNotify("Merged")
+	say('merged')
+
+def stash():
+	print "stash"
+	print os.system('git stash')
+	growlNotify("Stashed")
+	say(stashed)
+
+def commit():
+	growlNotify("Committing")
+	print "commit"
+	print os.system('git add -A')
+	print os.system('git commit -a -m "from my leap"')
+	growlNotify("Commited")
+	say('commited')
+
+def push():
+	growlNotify("Pushing")
+	print "push"
+	print os.system('git push')
+	growlNotify("Pushed")
+	say('pushed')
+
+def pull():
+	growlNotify("Pulling")
+	print "pull"
+	print os.system('git pull')
+	growlNotify("Pulled")
+	say('pulled')
+
 
 def main():
+
+	try:
+		growl = gntp.notifier.GrowlNotifier(
+			applicationName = "GIT",
+			notifications = ["New Updates","New Messages"],
+			defaultNotifications = ["New Messages"],
+			hostname = "", # Defaults to localhost
+			password = "" # Defaults to a blank password
+		)
+		growl.register()
+	except:
+		pass
+		
 	listener = LeapListener()
 	controller = Leap.Controller()
 	controller.add_listener(listener)
