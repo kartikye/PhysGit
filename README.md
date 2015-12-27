@@ -1,5 +1,5 @@
 # PhysGit
-PhysGit is for the lazy programmer. Instead of having to switch to cmd to use git, all you have to do to push is to literaly push, pull to pull, squash down to commit and draw circle to commit. PhysGit also connects to Growl to notify you when your got request is completed and on OSX it will talk to you.
+PhysGit is for the lazy programmer. It enables you to use ‘the force’ to control Git (who doesn’t want to be Darth Coder!). ‘Pushing’ your arm over the Leap pushes your code. ‘Pulling’ your arm over the Leap pulls your code. ‘Swiping down’ stashes the code and ‘drawing a circle’ commits the code. 
 
 Optional Dependencies: Growl Notifier and GNTP library.
 
