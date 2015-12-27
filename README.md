@@ -14,4 +14,4 @@ Instructions:
 - To pull - Pull
 - To commit - Swipe down
 - To merge - Draw a circle
-- to Stash - Swipe left
+- To stash - Swipe left
