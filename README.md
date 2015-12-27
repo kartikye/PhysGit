@@ -5,10 +5,10 @@ Optional Dependencies: Growl Notifier and GNTP library.
 
 Instructions:
 
-1. open terminal/cmd/bash
+1. Open terminal/cmd/bash
 2. cd into your project directory
-3. run PhysGit.py using python /path/to/PhysGit.py
-4. wave your hands around
+3. Run PhysGit.py using python /path/to/PhysGit.py
+4. Wave your hands around
 
 - To push - Push 
 - To pull - Pull
