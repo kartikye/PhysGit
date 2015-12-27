@@ -10,8 +10,8 @@ Instructions:
 3. run PhysGit.py using python /path/to/PhysGit.py
 4. wave your hands around
 
-\n- To push - push
-\n- To pull - pull
-\n- To commit - swipe downeards
-\n- To merge - draw a circle with your finger
-\n- To stash - swipe left
+- To push - Push 
+- To pull - Pull
+- To commit - Swipe down
+- To merge - Draw a circle
+- to Stash - Swipe left
