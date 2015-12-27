@@ -9,7 +9,7 @@ Instructions:
 2. cd into your project directory
 3. run PhysGit.py using python /path/to/PhysGit.py
 4. wave your hands around
-.
+
 - To push - Push 
 - To pull - Pull
 - To commit - Swipe down
